@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Madrid CF</title>
+</head>
+<body>
+    <h1>Real Madrid Squad</h1>
+    <a href="{% url 'rmapp:buy' %}">Buy</a>
+    {% for player in  players%}
+        <div class="col-md-4">
+            <h2>{{player.name}}</h2>
+            <h4>{{player.number}}</h4>
+            <img src="{{player.profile}}" height="100px">
+            <a href="{% url 'rmapp:sell' player.id %}">Sell</a>
+            <a href="{% url 'rmapp:update' player.id %}">Update</a>
+            <br>
+            <br>
+        </div>
+    {% endfor %}
+</body>
+</html>
