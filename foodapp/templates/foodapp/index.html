@@ -8,13 +8,24 @@
 </head>
 <body>
     {% block body %}
-    <h1>This is just a template</h1>
     {% for item in  items%}
-    <ul>
-        <li>
-            <p><a href="{% url 'foodapp:detail' item.id %}">{{item.id}} {{item}}</a></p> 
-        </li>
-    </ul>   
+    
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="img-fluid card" height="150px" src="{{item.item_image}}"/>
+        </div>
+        <div class="col-md-4">
+            <h3>{{item.item_name}}</h3>
+            <h5>{{item.item_desc}}</h5>
+            <h6>${{item.item_price}}</h6>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'foodapp:detail' item.id %}" class="btn btn-success">Details</a>
+        </div>
+
+    </div>
+
+
     {% endfor %}
     {% endblock  %}
 </body>
