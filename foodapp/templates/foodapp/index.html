@@ -1,13 +1,13 @@
-{% load static %}
+{% extends 'foodapp/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'foodapp/style.css' %}">
 </head>
 <body>
+    {% block body %}
     <h1>This is just a template</h1>
     {% for item in  items%}
     <ul>
@@ -16,5 +16,6 @@
         </li>
     </ul>   
     {% endfor %}
+    {% endblock  %}
 </body>
 </html>
