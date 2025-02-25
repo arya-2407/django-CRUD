@@ -32,3 +32,11 @@ def update_item(req,item_id):
             form.save()
         return redirect('foodapp:item')
     return render(req,'foodapp/item-form.html',{'form':form, 'item' : item})
+
+def delete_item(req,item_id):
+    item = Item.objects.get(pk=item_id)
+    if req.method=='POST':
+        item.delete()
+        return redirect('foodapp:item')
+    
+    return render(req,'foodapp/item-delete.html',{'item':item})
