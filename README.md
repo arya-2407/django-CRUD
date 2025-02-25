@@ -1,2 +1,3 @@
-learning django\n
+learning django  
+
 feedback is always welcome!
