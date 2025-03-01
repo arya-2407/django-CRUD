@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import RegisterForm
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def register(req):
@@ -20,3 +21,7 @@ def register(req):
 def custom_logout(request):
     logout(request)
     return redirect('foodapp:item')  # Show a logout confirmation page
+
+@login_required
+def profilepage(req):
+    return render(req,'users/profile.html')
